@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:legacy && tsc && vite build",
+    "build:legacy": "node scripts/bundle-legacy.js",
     "preview": "vite preview"
   },
   "devDependencies": {
     "typescript": "~5.3.3",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "terser": "^5.27.0"
   }
 }

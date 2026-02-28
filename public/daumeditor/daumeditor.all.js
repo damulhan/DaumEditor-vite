@@ -1,4 +1,3 @@
-/* --- Source: scopeVariable.js --- */
 /**
  * Application scope variable
  *  
@@ -10,8 +9,6 @@ var _DOC = document,
 	_TRUE = true,
 	_NULL = null,
 	_UNDEFINED;
-
-/* --- Source: lib/json2.js --- */
 /*
  json2.js
  2013-05-26
@@ -498,8 +495,6 @@ if (typeof JSON !== 'object') {
 		};
 	}
 }());
-
-/* --- Source: lib/txlib.js --- */
 
 /** @namespace */
 var $tx = {}; 
@@ -2085,8 +2080,6 @@ $tx.extend($tx, /** @lends $tx */{
 
 
 _WIN.$tx = $tx;
-
-/* --- Source: lib/closure-range.js --- */
 // Copyright 2006 The Closure Library Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13753,8 +13746,6 @@ goog.provide("export_dep");
 //goog.require('goog.dom.ControlRange');
 //goog.require('goog.dom.MultiRange');
 //goog.require('goog.dom.Range');
-
-/* --- Source: lib/hyperscript.js --- */
 /* megascript */
 _WIN.tx = {};
 
@@ -13815,8 +13806,6 @@ _WIN.installHyperscript = function(namespace, oDocument) {
 };
 installHyperscript(_WIN.tx, _DOC);
 
-
-/* --- Source: lib/template.js --- */
 /**
  * Template - Very Very Simple Template Engine
  *  similar prototype.js template engine
@@ -13913,8 +13902,6 @@ installHyperscript(_WIN.tx, _DOC);
 
 })();
 
-
-/* --- Source: lib/dgetty.js --- */
 /**
  * DomGetty - Very Very Simple Dom Selector Engine
  * - id : #
@@ -14160,8 +14147,6 @@ installHyperscript(_WIN.tx, _DOC);
 
 })();
 
-
-/* --- Source: lib/dfindy.js --- */
 /**
  * DomFindy - Very Very Simple Dom Selector Engine, But find ancestor
  * - id : #
@@ -14288,8 +14273,6 @@ installHyperscript(_WIN.tx, _DOC);
 	};
 })();
 
-
-/* --- Source: lib/xgetty.js --- */
 /**
  * XMLGetty - Very Very Simple XML Dom Selector Engine By XPath
  * - xpath
@@ -14455,8 +14438,6 @@ installHyperscript(_WIN.tx, _DOC);
 	};
 
 })();
-
-/* --- Source: lib/font_css_property.js --- */
 function extend(dest, org) {
     for (var key in org) {
         dest[key] = org[key];
@@ -14626,8 +14607,6 @@ FontCssProperty.prototype.toShorthand = function() {
     result = extend(result, propertiesClone);
     return result;
 };
-
-/* --- Source: trex/eval.js --- */
 window.txEval = function(source, target){
 	if (typeof source == "function") {
 		return source.call(target || this);
@@ -14635,8 +14614,6 @@ window.txEval = function(source, target){
 		return (target) ? target.eval(source) : this.eval(source);
 	}
 };
-
-/* --- Source: trex/trex.js --- */
 /**
  * @fileoverview  
  * Trex 정의
@@ -14871,8 +14848,6 @@ var Trex = {
 })(Trex);
 
 _WIN.Trex = Trex;
-
-/* --- Source: trex/event.js --- */
 /**
  * @fileoverview  
  * 사용자 정의 이벤트를 미리 정의
@@ -15343,8 +15318,6 @@ var TrexEvent = {
 };
 
 
-
-/* --- Source: trex/config.js --- */
 var textboxOption = function( data, padding, bgcolor, border ){
 	return { 
 		data: data, 
@@ -15781,8 +15754,6 @@ var TrexConfig = function() {
 }();
 
 _WIN.TrexConfig = TrexConfig;
-
-/* --- Source: trex/message.js --- */
 var TrexMessage = function () {
     var __MESSAGES = {};
 
@@ -15818,8 +15789,6 @@ var TrexMessage = function () {
 
 _WIN.TXMSG = TrexMessage.getMsg;
 _WIN.TrexMessage = TrexMessage;
-
-/* --- Source: trex/configbuilder.js --- */
 var EditorConfigBuilder = function (defaultConfigObject /* optional */) {
 	this.config = defaultConfigObject || {};
 };
@@ -15852,8 +15821,6 @@ EditorConfigBuilder.prototype.getConfig = function () {
 };
 
 _WIN.EditorConfigBuilder = EditorConfigBuilder;
-
-/* --- Source: trex/lib/markup.js --- */
 Trex.MarkupTemplate = {};
 
 (function() {
@@ -15905,8 +15872,6 @@ Trex.MarkupTemplate = {};
 	});
 })();
 
-
-/* --- Source: trex/lib/domutil.js --- */
 /** @namespace */
 var $tom = {};
 
@@ -17638,8 +17603,6 @@ Object.extend($tom, /** @lends $tom */{
 });
 
 _WIN.$tom = $tom;
-
-/* --- Source: trex/lib/utils.js --- */
 (function(Trex) {
 	/**
 	 * @namespace
@@ -18457,8 +18420,6 @@ _WIN.$tom = $tom;
 
 })(Trex);
 
-
-/* --- Source: trex/lib/imageresizer.js --- */
 /**
  * @fileoverview
  * Class Trex.ImageResizer를 포함하고 있다. 
@@ -18545,8 +18506,6 @@ Trex.ImageResizer = Trex.Class.create({
 
 
 
-
-/* --- Source: trex/lib/tableutil.js --- */
 /*jslint nomen: false*/
 /*global Trex, $tom, $tx, _FALSE, _NULL, _TRUE */
 Trex.TableUtil = {
@@ -19083,8 +19042,6 @@ Trex.TableUtil.Indexer = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/mixins/ajax.js --- */
 /**
  * XmlHttpRequest객체를 생성하고 이 객체를 이용해 ajax request를 수행한다.
  * @class
@@ -19255,8 +19212,6 @@ Trex.I.JSRequester = Trex.Faculty.create(/** @lends Trex.I.JSRequester */{
 		}
 	}
 });
-
-/* --- Source: trex/mixins/observable.js --- */
 _WIN.$stop = {};
 _WIN.$propagate = {};
 /**
@@ -19641,8 +19596,6 @@ Trex.I.Runnable = Trex.Faculty.create({
 		}
 	}
 });
-
-/* --- Source: trex/mixins/colorpallete.js --- */
 TrexMessage.addMsg({
     '@menu.pallete.revert': "기본색으로",
     '@adoptor.label': "가나다",
@@ -20112,8 +20065,6 @@ Trex.Color = {
     }
 };
 
-/* --- Source: trex/mixins/cookiebaker.js --- */
-
 Trex.I.CookieBaker = Trex.Faculty.create({
 	cookieName: _NULL,
 	cookieValue: _NULL,
@@ -20177,8 +20128,6 @@ Trex.I.CookieBaker = Trex.Faculty.create({
 	}
 });
 
-
-/* --- Source: trex/common/button.js --- */
 /**
  * @fileoverview
  * 에디터에서 사용되는 button의 모음 
@@ -20945,8 +20894,6 @@ Trex.Button.ColorWidget = Trex.Class.create(/** @lends Trex.Button.ColorWidget.p
 });
 
 
-
-/* --- Source: trex/common/menu.js --- */
 /**
  * @fileoverview
  * 에디터에서 사용되는 menu의 모음
@@ -21682,8 +21629,6 @@ Trex.Menu.ColorPallete = Trex.Class.create(/** @lends Trex.Menu.ColorPallete.pro
     }
 });
 
-
-/* --- Source: trex/common/menuback.js --- */
 $tx.msie && Trex.module("add menu layer shield for IE flash object", function(editor, toolbar, sidebar, canvas/*, config*/) {
 
     /**
@@ -21798,8 +21743,6 @@ $tx.msie && Trex.module("add menu layer shield for IE flash object", function(ed
         shield.updateAll();
     });
 });
-
-/* --- Source: trex/editor.js --- */
 /**
  * @fileoverview
  * DaumEitor의 Entrypoint역할을 하는 source로 Trex.Editor, Editor 를 포함
@@ -22244,8 +22187,6 @@ Trex.Editor = Trex.Class.create( /** @lends Trex.Editor.prototype */{
 	Editor.prototype.focusOnForm = Editor.focusOnForm;
 })();
 
-
-/* --- Source: trex/toolbar.js --- */
 /**
  * @fileoverview
  * - Trex.Toolbar
@@ -22761,8 +22702,6 @@ Trex.I.Tool.QueryStyle.Gecko = Trex.Mixin.create({
     }
 });
 
-
-/* --- Source: trex/sidebar.js --- */
 /**
  * @fileoverview 
  * Trex.Sidebar, Trex.EntryBox, Trex.Entry, Trex.Actor를 포함하고 있다.  
@@ -23074,8 +23013,6 @@ Trex.Actor = Trex.Class.draft({
 	}
 });
 
-
-/* --- Source: trex/docparser.js --- */
 Trex.install("editor.getDocParser",
 	function(editor, toolbar, sidebar, canvas, config){
 		var _docparser = new Trex.Docparser(editor, sidebar, config);
@@ -23223,8 +23160,6 @@ Trex.Docparser =Trex.Class.create( {
 	} 
 );
 
-
-/* --- Source: trex/entryproxy.js --- */
 Trex.install("editor.getEntryProxy",
 	function(editor, toolbar, sidebar, canvas, config){
 		var _entryproxy = new Trex.EntryProxy(editor, sidebar, config);
@@ -23303,8 +23238,6 @@ Trex.EntryProxy =Trex.Class.create( {
 
 
 
-
-/* --- Source: trex/formproxy.js --- */
 Trex.install("editor.getForm",
 	function(editor, toolbar, sidebar, canvas, config){
 		var _formproxy = new Trex.FormProxy(editor, sidebar, config);
@@ -23407,8 +23340,6 @@ Trex.FormProxy =Trex.Class.create( {
 	}
 });
 		
-
-/* --- Source: trex/saver.js --- */
 Trex.install("editor.getSaver & editor.getDataAsJSON & editor.setDataByJSON",
 	function(editor, toolbar, sidebar, canvas, config){
 		var _saver = new Trex.Save(editor, toolbar, sidebar, canvas, config);
@@ -23621,8 +23552,6 @@ Trex.Save = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/resizer.js --- */
 Trex.module("new Trex.Resizer",
 	function(editor, toolbar, sidebar, canvas, config){
 		var _initializedId = config.initializedId || ""; 
@@ -23793,8 +23722,6 @@ Trex.Resizer = Trex.Class.create({
 		return this.minDragHeight = this.config.minHeight || 200;
 	}
 });
-
-/* --- Source: trex/history.js --- */
 /*
  알려진 문제들
  -
@@ -24136,8 +24063,6 @@ Trex.I.History.Trident = {
         }
     });
 })();
-
-/* --- Source: trex/canvas.js --- */
 /**
  * @fileOverview
  * 컨텐츠를 가지고 있는 편집 영역을 수정, 관리하는 Trex.Canvas 관련 Source로
@@ -25064,8 +24989,6 @@ Trex.module("apply respectVisibilityInDesign for old IE", function(editor, toolb
         }
     }
 });
-
-/* --- Source: trex/panels/panel.js --- */
 /**
  * @fileOverview
  * 각 panel의 컨텐츠를 수정, 관리하기 위한 추상 클래스 관련 Source
@@ -25187,8 +25110,6 @@ Trex.Canvas.BasedPanel = Trex.Class.draft(/** @lends Trex.Canvas.BasedPanel.prot
 	}
 });
 
-
-/* --- Source: trex/panels/wysiwyg/iframeloader.js --- */
 (function() {
     /**
      * WYSIWYG 편집 영역에 해당하는 <iframe> 을 초기화한다.
@@ -25314,8 +25235,6 @@ Trex.Canvas.BasedPanel = Trex.Class.draft(/** @lends Trex.Canvas.BasedPanel.prot
             '</body></html>';
 
 })();
-
-/* --- Source: trex/panels/wysiwyg/webfontloader.js --- */
 (function() {
     /**
      * 웹폰트를 로딩하기 위한 클래스로 WysiwygPanel 내부에서만 사용된다.
@@ -25395,8 +25314,6 @@ Trex.Canvas.BasedPanel = Trex.Class.draft(/** @lends Trex.Canvas.BasedPanel.prot
         }
     });
 })();
-
-/* --- Source: trex/panels/wysiwyg/wysiwygrelative.js --- */
 (function() {
     var __SCROLL_WIDTH = 16;
     /**
@@ -25434,8 +25351,6 @@ Trex.Canvas.BasedPanel = Trex.Class.draft(/** @lends Trex.Canvas.BasedPanel.prot
         }
     });
 })();
-
-/* --- Source: trex/panels/wysiwyg/eventbinder.js --- */
 (function() {
     Trex.WysiwygEventBinder = Trex.Class.create({
         initialize: function(win, doc, canvas) {
@@ -25513,8 +25428,6 @@ Trex.Canvas.BasedPanel = Trex.Class.draft(/** @lends Trex.Canvas.BasedPanel.prot
 
 })();
 
-
-/* --- Source: trex/panels/wysiwygpanel.js --- */
 (function() {
 	/**
 	 * wysiwyg 영역의 컨텐츠를 수정, 관리하기 위한 클래스로,
@@ -26081,8 +25994,6 @@ Trex.module("auto body resize",
 
 
 
-
-/* --- Source: trex/panels/textareapanel.js --- */
 /**
  * @fileOverview
  * 이 클래스는 BasedPanel 을 상속받는다.
@@ -26179,8 +26090,6 @@ Trex.Canvas.TextareaPanel = Trex.Class.create(/** @lends Trex.Canvas.TextareaPan
 		this.el.readOnly = _TRUE;
 	}
 });
-
-/* --- Source: trex/panels/htmlpanel.js --- */
 /**
  * @fileOverview
  * Textarea (source, text) 영역의 컨텐츠를 수정, 관리하기 위한 HtmlPanel 관련 Source
@@ -26280,8 +26189,6 @@ Trex.Canvas.HtmlPanel = Trex.Class.create(/** @lends Trex.Canvas.HtmlPanel.proto
 		}
 	}
 });
-
-/* --- Source: trex/panels/textpanel.js --- */
 /**
  * @fileOverview
  * Textarea (source, text) 영역의 컨텐츠를 수정, 관리하기 위한 TextPanel 관련 Source
@@ -26354,8 +26261,6 @@ Trex.module("interrupt enter key action @ text panel",
 	}
 );
 
-
-/* --- Source: trex/processor/marker.js --- */
 /**
  * @fileOverview
  * Wysiwyg 영역의 DOM 조작을 하기전에 선택된 영역의 시작과 끝에 marker를 삽입하여 
@@ -26504,8 +26409,6 @@ Trex.Canvas.Marker = Trex.Class.create(/** @lends Trex.Canvas.Marker.prototype *
 });
 
 
-
-/* --- Source: trex/processor/selection.js --- */
 /**
  * @fileOverview
  * native selection, range 객체를 wrapping 한 객체로 Processor 에서 주로 사용된다. 
@@ -27179,8 +27082,6 @@ Trex.Canvas.Selection = Trex.Class.create(/** @lends Trex.Canvas.Selection.proto
 });
 
 
-
-/* --- Source: trex/processor/bookmark.js --- */
 /**
  * @fileOverview
  * 선택된 영역을 북마크하여 
@@ -27437,8 +27338,6 @@ Trex.Canvas.Bookmark = Trex.Class.create(/** @lends Trex.Canvas.Bookmark.prototy
 	}
 });
 	
-
-/* --- Source: trex/processor/processor_textarea.js --- */
 Trex.Canvas.TextAreaProcessor = Trex.Class.create({
 	$mixins: [ ],
 	initialize: function(textarea) {
@@ -27501,8 +27400,6 @@ Trex.Canvas.TextAreaProcessor = Trex.Class.create({
     }
 });
 
-
-/* --- Source: trex/processor/processor_standard.js --- */
 /**
  * @fileOverview
  * Wysiwyg 영역의 컨텐츠를 조작하기 위해 사용되는 공통되는 Processor 정의
@@ -28286,8 +28183,6 @@ Trex.module("bind iframe activate or deactivate event",
     }
 );
 
-
-/* --- Source: trex/processor/processor_trident.js --- */
 Trex.I.Processor.Trident = {
 	/**
 	 * Paragraph 를 채운다.
@@ -28382,8 +28277,6 @@ Object.extend(Trex.I.Processor.Trident, {
 		}
 	}
 });
-
-/* --- Source: trex/processor/processor_trident_standard.js --- */
 Trex.I.Processor.TridentStandard = {
     /**
      * Paragraph 를 채운다.
@@ -28491,8 +28384,6 @@ Object.extend(Trex.I.Processor.TridentStandard, {
 });
 
 
-
-/* --- Source: trex/processor/processor_gecko.js --- */
 Trex.I.Processor.Gecko = {
 	/**
 	 * Paragraph 를 채운다.
@@ -28513,8 +28404,6 @@ Trex.I.Processor.Gecko = {
 	}
 };
 
-
-/* --- Source: trex/processor/processor_webkit.js --- */
 Trex.I.Processor.Webkit = {
 	/**
 	 * Paragraph 를 채운다.
@@ -28607,8 +28496,6 @@ Trex.I.Processor.Webkit = {
 	}
 };
 
-
-/* --- Source: trex/processor/processor_presto.js --- */
 Trex.I.Processor.Presto = {
 	/**
 	 * Paragraph 를 채운다.
@@ -28629,8 +28516,6 @@ Trex.I.Processor.Presto = {
 	}
 };
 
-
-/* --- Source: trex/processor/p/processor_standard_p.js --- */
 
 Trex.I.Processor.StandardP = {
 	putBogusParagraph: function() {
@@ -28694,41 +28579,29 @@ Trex.module("interrupt enter key action @ wysiwyg panel", function(editor, toolb
 });
 
 
-/* --- Source: trex/processor/p/processor_trident_p.js --- */
-
 Trex.I.Processor.TridentP = {
 	
 };
 
-
-/* --- Source: trex/processor/p/processor_trident_standard_p.js --- */
 
 Trex.I.Processor.TridentStandardP = {
 
 };
 
 
-/* --- Source: trex/processor/p/processor_gecko_p.js --- */
-
 Trex.I.Processor.GeckoP = {
 
 };
 
 
-/* --- Source: trex/processor/p/processor_webkit_p.js --- */
-
 Trex.I.Processor.WebkitP = {
 
 };
-
-/* --- Source: trex/processor/p/processor_presto_p.js --- */
 
 Trex.I.Processor.PrestoP = {
 	
 };
 
-
-/* --- Source: trex/processor/processor.js --- */
 
 (function() {
 	var BlockRangeIterator = Trex.Class.create({
@@ -29113,8 +28986,6 @@ Trex.Canvas.ProcessorP = Trex.Class.create({
 });
 
 
-/* --- Source: trex/filters/converting.js --- */
-
 Trex.register("filter > mode change", function(editor, toolbar, sidebar, canvas, config) {
 
     /* -> Text Convert */
@@ -29324,8 +29195,6 @@ Trex.register("filter > non-breaking space", function(editor/*, toolbar, sidebar
     });
 });
 
-
-/* --- Source: trex/filters/redundancy.js --- */
 Trex.register("filter > clear redundancy",
 	function (editor) {
 		function clearRedundancy(contents) {
@@ -29417,8 +29286,6 @@ Trex.register("filter > clear redundancy",
 	}
 );
 
-
-/* --- Source: trex/attachment.js --- */
 /**
  * @fileoverview
  * attachments.js
@@ -29626,8 +29493,6 @@ Trex.Attachment = Trex.Class.draft(/** @lends Trex.Attachment.prototype */{
 });
 
 
-/* --- Source: trex/attachbox.js --- */
-
 TrexConfig.addSidebar('attachbox', {
 	show: _FALSE,
 	destroy: _FALSE
@@ -29831,8 +29696,6 @@ Trex.module("push history @when entrybox has changes",
 	}
 );
 
-
-/* --- Source: trex/attachbox/attachbox_ui.js --- */
 TrexMessage.addMsg({
 	'@attacher.ins': "삽입",
 	'@attacher.del': "삭제",
@@ -30258,8 +30121,6 @@ Trex.I.AttachBox = {
 	}
 };
 
-
-/* --- Source: trex/attachbox/filecapacity.js --- */
 Trex.install("attachbox.onFileCapacityInitialized @if sidebar.capacity.show = true",
 	function(editor, toolbar, sidebar, canvas, config){
 		var attachbox = editor.getAttachBox();
@@ -30509,8 +30370,6 @@ Trex.I.FileCapacity = {
 	}
 };
 
-
-/* --- Source: trex/attacher.js --- */
 /**
  * @filewoverview 
  * attacher.js - 첨부 관련 source로 이 소스에서 존재하는 Attacher들을 직접 생성한다. 
@@ -30686,8 +30545,6 @@ Trex.Attacher = Trex.Class.draft(/** @lends Trex.Attacher.prototype */{
 	}
 });
 
-
-/* --- Source: trex/embeder.js --- */
 TrexMessage.addMsg({
 	'@embeder.alert': "에디터 상태에서만 삽입할 수 있습니다."
 });
@@ -30974,8 +30831,6 @@ Trex.module("embad entry data", function (editor, toolbar, sidebar, canvas, conf
         }
     });
 });
-
-/* --- Source: trex/embedentry.js --- */
 /**
  * Trex.EmbedEntry
  * 삽입된 embed들을 wrapping하는 class 
@@ -31030,8 +30885,6 @@ Trex.EmbedEntry = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/buttonFontTool.js --- */
 Trex.I.ButtonFontTool = Trex.Mixin.create({
     oninitialized: function(config) {
         var self = this;
@@ -31097,8 +30950,6 @@ Trex.I.ButtonFontTool = Trex.Mixin.create({
     }
 });
 
-
-/* --- Source: trex/tool/menuFontTool.js --- */
 Trex.I.MenuFontTool = Trex.Mixin.create({
 	oninitialized: function(config) {
         var self = this;
@@ -31193,8 +31044,6 @@ Trex.I.MenuFontTool = Trex.Mixin.create({
     }
 });
 
-
-/* --- Source: trex/tool/fontTool.js --- */
 Trex.I.FontTool = Trex.Mixin.create({
     initialize: function(editor, toolbar, config) {
         this.$super.initialize(editor, toolbar, config);
@@ -31379,8 +31228,6 @@ Trex.I.WrappingDummyFontTool = Trex.Mixin.create({
         return newNode;
     }
 });
-
-/* --- Source: trex/tool/switcher.js --- */
 /**
  * @fileoverview 
  *  wysiwyg, source, text 세모드로의 변경을 가능하게하는 dropdown 형식의 tool 'Switcher' Source,
@@ -31488,8 +31335,6 @@ Trex.Tool.Switcher = Trex.Class.create({
 	
 });
 
-
-/* --- Source: trex/tool/switchertoggle.js --- */
 /**
  * @fileoverview 
  *  wysiwyg, source 두 모드의 변경을 가능하게하는 checkbox형식의 tool 'SwitcherToggle' Source,
@@ -31552,8 +31397,6 @@ Trex.Tool.SwitcherToggle = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/fontfamily.js --- */
 /**
  * @fileoverview 
  * 설정에서 지정된 여러 글꼴들을 선택할 수 있는 메뉴를 포함하는 tool인 '글꼴' Icon을 위한 source로, 
@@ -31753,8 +31596,6 @@ Trex.Tool.FontFamily = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/tool/fontsize.js --- */
 /**
  * @fileoverview 
  * 설정에서 지정된 여러 fontsize들을 선택할 수 있는 메뉴를 포함하는 tool인 '글자크기' Icon을 위한 source로,
@@ -31863,8 +31704,6 @@ Trex.Tool.FontSize = Trex.Class.create({
     }
 });
 
-
-/* --- Source: trex/tool/bold.js --- */
 /**
  * @fileoverview 
  * Toolbar의 Bold Icon을 위해 필요한 configuration과 Class Trex.Tool.Bold을/를 포함    
@@ -31903,8 +31742,6 @@ Trex.Tool.Bold = Trex.Class.create({
     }
 });
 
-
-/* --- Source: trex/tool/underline.js --- */
 /**
  * @fileoverview 
  *  Tool 'Underline' Source,
@@ -31950,8 +31787,6 @@ Trex.Tool.Underline = Trex.Class.create({
         return this.queryNodeStyle(node, this.getCssPropertyName(), this.getQueryCommandName(), matchTagName);
     }
 });
-
-/* --- Source: trex/tool/italic.js --- */
 /**
  * @fileoverview 
  * 'Italic' Icon Source,
@@ -31991,8 +31826,6 @@ Trex.Tool.Italic = Trex.Class.create({
         return $tx.getStyle(node, "fontStyle") == "italic";
     }
 });
-
-/* --- Source: trex/tool/strike.js --- */
 /**
  * @fileoverview 
  *  Tool '취소선' Source,
@@ -32038,8 +31871,6 @@ Trex.Tool.Strike = Trex.Class.create({
         return this.queryNodeStyle(node, this.getCssPropertyName(), this.getQueryCommandName(), matchTagName);
     }
 });
-
-/* --- Source: trex/tool/forecolor.js --- */
 /**
  * @fileoverview 
  * 글자색을 변경하기 위해 쓰이는 '글자색' Icon을 위해 필요한 source, 
@@ -32118,8 +31949,6 @@ Trex.Tool.ForeColor = Trex.Class.create({
 
 
 
-
-/* --- Source: trex/tool/backcolor.js --- */
 /**
  * @fileoverview 
  *  글자 배경색을 적용 하기 위해 쓰이는, Toolbar의 글자배경색 Icon을 위해 필요한 
@@ -32227,8 +32056,6 @@ Trex.Tool.BackColor = Trex.Class.create({
     }
 });
 
-
-/* --- Source: trex/tool/indent.js --- */
 /**
  * @fileoverview
  * '들여쓰기' Icon Source,
@@ -32344,8 +32171,6 @@ Trex.ChainHandler = Trex.Class.create({
     }
 });
 
-
-/* --- Source: trex/tool/indentHelper.js --- */
 (function() {
     Trex.Tool.Indent.Helper = {
         findBlocksToIndentFromRange: function(range, processor, savedCaret) {
@@ -32700,8 +32525,6 @@ Trex.ChainHandler = Trex.Class.create({
         }
     };
 })();
-
-/* --- Source: trex/tool/outdent.js --- */
 /**
  * @fileoverview 
  * Tool '내어쓰기' Source,
@@ -32786,8 +32609,6 @@ Trex.Tool.Outdent = Trex.Class.create({
         this.onBackspace = new Handler(onCollapsedBackspace, propagate, propagate);
     }
 });
-
-/* --- Source: trex/mixins/alignexecution.js --- */
 Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
 	executeAlignImageMode: function(processor) {
 		var _imageAlignProps = this.constructor.__ImageModeProps['image'];
@@ -32948,8 +32769,6 @@ Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
         }
     }
 });
-
-/* --- Source: trex/tool/alignleft.js --- */
 (function() {
     /**
      * @fileoverview
@@ -33038,8 +32857,6 @@ Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
         }
     });
 })();
-
-/* --- Source: trex/tool/aligncenter.js --- */
 (function() {
     /**
      * @fileoverview
@@ -33128,8 +32945,6 @@ Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
         }
     });
 })();
-
-/* --- Source: trex/tool/alignright.js --- */
 (function() {
     /**
      * @fileoverview
@@ -33218,8 +33033,6 @@ Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
         }
     });
 })();
-
-/* --- Source: trex/tool/alignfull.js --- */
 (function() {
     /**
      * @fileoverview
@@ -33303,8 +33116,6 @@ Trex.I.AlignExecution = Trex.Mixin.create(/** @lends Trex.I.AlignExecution */{
         }
     });
 })();
-
-/* --- Source: trex/tool/insertcells.js --- */
 /**
  * @fileoverview 
  * '행,열 삽입' Icon Source,
@@ -33378,8 +33189,6 @@ Trex.Tool.Insertcells = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/deletecells.js --- */
 /**
  * @fileoverview 
  * '행,열 삽입' Icon Source,
@@ -33439,8 +33248,6 @@ Trex.Tool.deletecells = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/mergecells.js --- */
 /**
  * @fileoverview 
  * '행,열 삽입' Icon Source,
@@ -33499,8 +33306,6 @@ Trex.Tool.Mergecells = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/cellslineheight.js --- */
 
 TrexMessage.addMsg({
 	'@cellslineheight.subtitle1': '1pt',
@@ -33577,8 +33382,6 @@ Trex.Button.CellslineheightList = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/cellslinecolor.js --- */
 /**
  * @fileoverview 
  * 글자색을 변경하기 위해 쓰이는 '글자색' Icon을 위해 필요한 source, 
@@ -33646,8 +33449,6 @@ Trex.Tool.Cellslinecolor = Trex.Class.create({
 
 
 
-/* --- Source: trex/tool/cellslinestyle.js --- */
-
 TrexMessage.addMsg({
 	'@cellslinestyle.subtitle1': '테두리 없음',
 	'@cellslinestyle.subtitle2': '실선',
@@ -33714,8 +33515,6 @@ Trex.Button.CellsLineStyledList = Trex.Class.create({
 	$extend: Trex.Button.Select
 });
 
-
-/* --- Source: trex/tool/cellsoutline.js --- */
 /**
  * @fileoverview 
  * '행,열 삽입' Icon Source,
@@ -33832,8 +33631,6 @@ Trex.Button.CellsoutlineList = Trex.Class.create({
 
 
 
-
-/* --- Source: trex/tool/cellslinepreview.js --- */
 
 Trex.MarkupTemplate.add(
 'cellsline.preview', [
@@ -33963,8 +33760,6 @@ Trex.Button.CellslinepreviewList = Trex.Class.create({
 		this.tool.setPreview(text);
 	}
 });
-
-/* --- Source: trex/tool/tablebackcolor.js --- */
 /**
  * @fileoverview 
  * 테이블 셀의 색을 변경하기 위해 쓰임
@@ -34028,8 +33823,6 @@ Trex.Tool.Tablebackcolor = Trex.Class.create({
 
 
 
-
-/* --- Source: trex/tool/tableedittool.js --- */
 /**
  * @fileoverview 
  *  toolbar의 접힌 부분을 열고닫는 '더보기' Icon을 위해 필요한 configuration과 Class Trex.Tool.Advanced 를 포함    
@@ -34110,8 +33903,6 @@ Trex.Tool.TableEditTool = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/tool/tabletemplate.js --- */
 /**
  * @fileoverview 
  * Tool '서식' Source,
@@ -34226,8 +34017,6 @@ Trex.Tool.Tabletemplate = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/lineheight.js --- */
 /**
  * @fileoverview 
  * '줄간격' Icon Source,
@@ -34293,8 +34082,6 @@ Trex.Tool.LineHeight = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/styledlist.js --- */
 /**
  * @fileoverview
  *  여러 Style의 리스트를 삽입 할 수 있는 Tool 'styledlist' Source,
@@ -34625,8 +34412,6 @@ Trex.Tool.StyledList.ListBuilder = Trex.Class.create({
         this.listElement.appendChild(listItem);
     }
 });
-
-/* --- Source: trex/tool/insertlink.js --- */
 /**
  * @fileoverview 
  * '링크삽입' Icon Source,
@@ -34931,8 +34716,6 @@ Trex.Menu.Link = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/richtextbox.js --- */
 /**
  * @fileoverview 
  * 직접 편집이 가능한 기능을 포함한 Tool '글상자' Source,
@@ -35308,8 +35091,6 @@ Trex.Menu.RichTextbox = Trex.Class.create({
 		return _elWrap;
 	}
 });
-
-/* --- Source: trex/tool/quote.js --- */
 /**
  * @fileoverview 
  * Tool '인용구' Source,
@@ -35419,8 +35200,6 @@ Trex.Tool.Quote = Trex.Class.create({
 });
 
 
-
-/* --- Source: trex/tool/table.js --- */
 /**
  * @fileoverview
  *  Table을 삽입하는 기능을 가진 Tool 'table' Source,
@@ -35875,8 +35654,6 @@ Trex.Menu.Table = Trex.Class.create({
 		elContext.appendChild(elDiv);
 	}
 });
-
-/* --- Source: trex/tool/emoticon.js --- */
 (function() {
     TrexMessage.addMsg({
         '@emoticon.subtitle.person': '사람',
@@ -35953,8 +35730,6 @@ Trex.Menu.Table = Trex.Class.create({
     });
     
 })();
-
-/* --- Source: trex/tool/redo.js --- */
 /**
  * @fileoverview 
  * Tool 'Redo' Source,
@@ -36007,8 +35782,6 @@ Trex.Tool.ReDo = Trex.Class.create({
 	
 });
 
-
-/* --- Source: trex/tool/undo.js --- */
 /**
  * @fileoverview 
  *  Tool 'UnDo' Source,
@@ -36061,8 +35834,6 @@ Trex.Tool.UnDo = Trex.Class.create({
 	
 });
 
-
-/* --- Source: trex/tool/removeformat.js --- */
 /**
  * @fileoverview 
  *  
@@ -36116,8 +35887,6 @@ Trex.module('initialize removeformat without toolbar button', function(editor, t
         new Trex.Tool.Removeformat(editor, toolbar, cfg);
     }
 });
-
-/* --- Source: trex/tool/horizontalrule.js --- */
 /**
  * @fileoverview 
  * 여러 스타일의 구분선을 삽입할 때 쓰이는 menu를 포함하는 Tool인 '구분선' Icon Source,
@@ -36220,8 +35989,6 @@ Trex.Tool.HorizontalRule = Trex.Class.create({
 	
 });
 
-
-/* --- Source: trex/tool/specialchar.js --- */
 /**
  * @fileoverview 
  *  Tool '특수문자' Source,
@@ -36290,8 +36057,6 @@ Trex.Tool.HorizontalRule = Trex.Class.create({
 	});
 })();
 
-
-/* --- Source: trex/tool/dictionary.js --- */
 /**
  * @fileoverview 
  * 영어 사전 팝업을 띄워 주는 '사전' Icon을 위해 필요한 source, configuration과 Class Trex.Tool.Dictionary을/를 포함    
@@ -36335,8 +36100,6 @@ Trex.Tool.Dictionary = Trex.Class.create({
 		}
 });
 
-
-/* --- Source: trex/tool/background.js --- */
 (function() {
     TrexConfig.addTool(
         "background",
@@ -36481,8 +36244,6 @@ Trex.Tool.Dictionary = Trex.Class.create({
         }
     );
 })();
-
-/* --- Source: trex/tool/advanced.js --- */
 /**
  * @fileoverview 
  *  toolbar의 접힌 부분을 열고닫는 '더보기' Icon을 위해 필요한 configuration과 Class Trex.Tool.Advanced 를 포함    
@@ -36567,8 +36328,6 @@ Trex.Tool.Advanced = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/tool/extraButtonDropdown.js --- */
 Trex.module("add drop-down menu button if extra buttons exist.", 
 	function (editor, toolbar, sidebar, canvas) {
 		canvas.observeJob(Trex.Ev.__IFRAME_LOAD_COMPLETE, function() {
@@ -36599,8 +36358,6 @@ Trex.module("add drop-down menu button if extra buttons exist.",
 );
 
 
-
-/* --- Source: trex/tool/fullscreen.js --- */
 (function(){
 	TrexConfig.addTool(
 		"fullscreen", {
@@ -36638,8 +36395,6 @@ Trex.module("add drop-down menu button if extra buttons exist.",
 		}
 	});
 })();
-
-/* --- Source: trex/attacher/image.js --- */
 /**
  * @imageoverview 
  * Image 업로드 관련 Source
@@ -36864,8 +36619,6 @@ Trex.Attachment.Image = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/attacher/file.js --- */
 /**
  * @fileoverview 
  * File 업로드 관련 Source
@@ -37086,8 +36839,6 @@ Trex.Attachment.File = Trex.Class.create({
 		return new RegExp("\\[" + TXMSG("@file.title") + ":" + data.dataSeq + "\\]", "gm");
 	}
 });
-
-/* --- Source: trex/embeder/media.js --- */
 TrexConfig.addTool(
 	"media",
 	{
@@ -37586,8 +37337,6 @@ TrexConfig.addEmbeder(
 	
 })();
 
-
-/* --- Source: trex/modules/blockingunload.js --- */
 // TODO change message!
 TrexMessage.addMsg({
 	'@canvas.unload.message': "작성하신 내용이 저장되지 않았습니다. 페이지를 떠나시겠습니까?",
@@ -37625,8 +37374,6 @@ Trex.module("observing beforeunload event",
 	}
 );
 	
-
-/* --- Source: trex/modules/alignbuttons.js --- */
 /**
  * @fileoverview
  * 에디터의 이미지를 선택시 툴바의 align icon을 변경시키는 module
@@ -37708,8 +37455,6 @@ Trex.module("Register an eventhandler in order to change align icons upon toolba
 );
 
 
-
-/* --- Source: trex/modules/canvassize.js --- */
 // NOTE 전체적으로 refactoring 필요
 Trex.module("make padding area inside Canvas with editor width",
 	function(editor, toolbar, sidebar, canvas) {
@@ -37949,8 +37694,6 @@ Trex.module("make padding area inside Canvas with editor width",
 );
 
 
-/* --- Source: trex/modules/blockingedit.js --- */
-
 Trex.module("Register an eventhandler in order to resize block and edit search results & some images in wysiwig panel.",
 	function(editor, toolbar, sidebar, canvas) {
 		
@@ -37999,8 +37742,6 @@ Trex.module("Register an eventhandler in order to resize block and edit search r
 );	
 
 
-/* --- Source: trex/modules/saveimagehistory.js --- */
-
 Trex.module("in order to save history for image resizing on IE",
 	function(editor, toolbar, sidebar, canvas/*, config*/){
 		var _history = canvas.history;
@@ -38037,8 +37778,6 @@ Trex.module("in order to save history for image resizing on IE",
 	}
 );
 
-
-/* --- Source: trex/modules/noticepanel.js --- */
 Trex.module("Add layer to display notice message on editor area before editing", //NOTE: #FTDUEDTR-18
 	function (editor, toolbar, sidebar, canvas, config) {
 		if (config.initializedMessage) {
@@ -38069,8 +37808,6 @@ Trex.module("Add layer to display notice message on editor area before editing",
 	}
 );
 
-
-/* --- Source: trex/modules/table.js --- */
 /*jslint onevar: false, nomen: false*/
 /*global Trex, TrexMessage, TXMSG, $tom, $tx, _FALSE, _NULL, _TRUE */
 Trex.MarkupTemplate.add('table.col.resize.dragger', '<div class="tx-table-col-resize-dragger" style="position:absolute; overflow:hidden; top: 0; left: 0; width: 3px; height: 100%; cursor:col-resize;"><\/div>');
@@ -38443,8 +38180,6 @@ Trex.module("table selector", function (editor, toolbar, sidebar, canvas, config
 	});
 });
 
-
-/* --- Source: trex/modules/table/selector.js --- */
 /*jslint nomen: false*/
 /*global Trex, $tom, $tx, _FALSE, _NULL, _TRUE */
 Trex.Table.Selector = Trex.Class.create({
@@ -38833,8 +38568,6 @@ Trex.Table.Selector = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/modules/table/merge.js --- */
 /*jslint nomen: false*/
 /*global Trex, $tom, $tx, _FALSE, _NULL, _TRUE, TXMSG */
 TrexMessage.addMsg({
@@ -39071,8 +38804,6 @@ Trex.Table.Merge = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/modules/table/insert.js --- */
 /*jslint nomen: false*/
 /*global Trex, $tom, $tx, _FALSE, _NULL, _TRUE */
 Trex.Table.Insert = Trex.Class.create({
@@ -39274,8 +39005,6 @@ Trex.Table.Insert = Trex.Class.create({
 	}
 });
 
-
-/* --- Source: trex/modules/table/delete.js --- */
 /*jslint nomen: false*/
 /*global Trex, $tom, $tx, _FALSE, _NULL, _TRUE */
 Trex.Table.Delete = Trex.Class.create({
@@ -39526,8 +39255,6 @@ Trex.Table.Delete = Trex.Class.create({
 });
 
 
-/* --- Source: trex/modules/table/border.js --- */
-
 Trex.Table.Border = Trex.Class.create({
 	$const: {
 			BORDER_STYLE:"1px solid #ccc"
@@ -39769,8 +39496,6 @@ Trex.Table.Border = Trex.Class.create({
 	
 });
 
-
-/* --- Source: trex/modules/table/template.js --- */
 (function() {
 
     Trex.Table.TemplateLoader = Trex.Class.create({
@@ -39849,8 +39574,6 @@ Trex.Table.Border = Trex.Class.create({
         }
     });
 })();
-
-/* --- Source: trex/modules/pageupdown.js --- */
 /**
  * Created by sungwon on 14. 7. 21.
  */
@@ -39883,8 +39606,6 @@ Trex.module("page up & down", function(editor, toolbar, sidebar, canvas, config)
 
     });
 });
-
-/* --- Source: trex/modules/tabledragger.js --- */
 Trex.module("table resize dragger", function(editor, toolbar, sidebar, canvas) {
     canvas.observeJob(Trex.Ev.__IFRAME_LOAD_COMPLETE, function() {
 
@@ -40529,8 +40250,6 @@ Trex.module("table resize dragger", function(editor, toolbar, sidebar, canvas) {
     });
 });
 
-
-/* --- Source: trex/modules/exiteditor.js --- */
 /**
  * Created by sungwon on 14. 5. 9.
  */
@@ -40594,4 +40313,3 @@ Trex.module("exit Editor", function(editor, toolbar, sidebar, canvas, config) {
         execHandler(ev);
     });
 });
-

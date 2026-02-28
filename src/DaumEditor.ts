@@ -79,6 +79,7 @@ export class DaumEditor2 {
   // Method to add tools dynamically
   addTool(id: string, command: string, icon: string, title: string) {
     const btn = document.createElement('button');
+    btn.id = id;
     btn.className = 'tool-button';
     btn.title = title;
     btn.innerHTML = icon;

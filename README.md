@@ -20,20 +20,30 @@
 
 ## 🛠 실행 방법
 ```bash
-# 의존성 설치 (필요시)
+# 1. 의존성 설치 (필요시)
 npm install
 
-# 개발 서버 실행 (포트: 3200)
+# 2. 레거시 번들 생성 (all.min.js 생성/업데이트)
+# 수정된 개별 JS 파일들을 하나로 합치고 압축합니다.
+npm run build:legacy
+
+# 3. 개발 서버 실행 (포트: 3200)
 npm run dev -- --port 3200
+
+# 4. 프로덕션 빌드 (dist 폴더 생성)
+# 실제 서비스 배포용 결과물을 생성합니다.
+npm run build
 ```
 
 ## 📂 프로젝트 구조
 *   `index.html`: 메인 에디터 진입점 및 에셋 로드 설정
 *   `public/daumeditor/`: 원본 에디터 엔진, 스타일, 이미지 및 번들링된 파일들
 *   `src/main.ts`: 에디터 초기화 및 설정 로직 (Vite 엔트리)
+*   `scripts/bundle-legacy.js`: 레거시 JS 파일들을 번들링하는 자동화 스크립트
 
 ## ⚠️ 주의 사항
 *   에디터 내부의 동적 로딩 로직(modules, attacher 등)을 위해 `public/daumeditor/js/` 경로의 원본 파일 구조가 유지되어야 합니다.
+*   번들링 순서가 매우 중요하므로, 새로운 코어 파일을 추가할 때는 `scripts/bundle-legacy.js`의 리스트 순서에 주의해야 합니다.
 
 ## ⚖️ 라이선스 및 기여 (License & Credits)
 이 프로젝트는 원본 **Daum Editor**의 [Apache License 2.0](https://github.com/kakao/DaumEditor/blob/master/LICENSE)을 따릅니다.
