@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daum 에디터 - Vite Modernized</title>
+    <link rel="stylesheet" href="/daumeditor/css/editor.css" type="text/css" charset="utf-8"/>
+    <script>
+        // Global Pre-definitions
+        window._DOC = document;
+        window._WIN = window;
+        window._DOC_EL = document.documentElement;
+        window._FALSE = false;
+        window._TRUE = true;
+        window._NULL = null;
+        window.TREX_STRICT_MODE = false;
+        window.DEBUG = 1;
+
+        // Enhanced Mock EditorJSLoader using public paths
+        window.EditorJSLoader = {
+            _readyCallbacks: [],
+            ready: function(fn) {
+                if (window.DAUM_EDITOR_LOADED) {
+                    fn(window.Editor);
+                } else {
+                    this._readyCallbacks.push(fn);
+                }
+            },
+            finish: function() {
+                window.DAUM_EDITOR_LOADED = true;
+                this._readyCallbacks.forEach(fn => fn(window.Editor));
+                this._readyCallbacks = [];
+            },
+            getBasePath: function() {
+                return "/daumeditor/";
+            },
+            getJSBasePath: function() {
+                return "/daumeditor/js/";
+            },
+            getCSSBasePath: function() {
+                return "/daumeditor/css/";
+            },
+            getPageBasePath: function() {
+                return "/daumeditor/pages/";
+            }
+        };
+    </script>
+    
+    <!-- Legacy Scripts from PUBLIC -->
+    <script src="/daumeditor/js/scopeVariable.js"></script>
+    <script src="/daumeditor/js/lib/json2.js"></script>
+    <script src="/daumeditor/js/lib/txlib.js"></script>
+    <script src="/daumeditor/js/lib/closure-range.js"></script>
+    <script src="/daumeditor/js/lib/hyperscript.js"></script>
+    <script src="/daumeditor/js/lib/template.js"></script>
+    <script src="/daumeditor/js/lib/dgetty.js"></script>
+    <script src="/daumeditor/js/lib/dfindy.js"></script>
+    <script src="/daumeditor/js/lib/xgetty.js"></script>
+    <script src="/daumeditor/js/lib/font_css_property.js"></script>
+    <script src="/daumeditor/js/trex/eval.js"></script>
+    <script src="/daumeditor/js/trex/trex.js"></script>
+    <script src="/daumeditor/js/trex/event.js"></script>
+    <script src="/daumeditor/js/trex/config.js"></script>
+    <script src="/daumeditor/js/trex/message.js"></script>
+    <script src="/daumeditor/js/trex/configbuilder.js"></script>
+    <script src="/daumeditor/js/trex/lib/markup.js"></script>
+    <script src="/daumeditor/js/trex/lib/domutil.js"></script>
+    <script src="/daumeditor/js/trex/lib/utils.js"></script>
+    <script src="/daumeditor/js/trex/lib/imageresizer.js"></script>
+    <script src="/daumeditor/js/trex/lib/tableutil.js"></script>
+    <script src="/daumeditor/js/trex/mixins/ajax.js"></script>
+    <script src="/daumeditor/js/trex/mixins/observable.js"></script>
+    <script src="/daumeditor/js/trex/mixins/colorpallete.js"></script>
+    <script src="/daumeditor/js/trex/mixins/cookiebaker.js"></script>
+    <script src="/daumeditor/js/trex/common/button.js"></script>
+    <script src="/daumeditor/js/trex/common/menu.js"></script>
+    <script src="/daumeditor/js/trex/common/menuback.js"></script>
+    <script src="/daumeditor/js/trex/editor.js"></script>
+    <script src="/daumeditor/js/trex/toolbar.js"></script>
+    <script src="/daumeditor/js/trex/sidebar.js"></script>
+    <script src="/daumeditor/js/trex/docparser.js"></script>
+    <script src="/daumeditor/js/trex/entryproxy.js"></script>
+    <script src="/daumeditor/js/trex/formproxy.js"></script>
+    <script src="/daumeditor/js/trex/saver.js"></script>
+    <script src="/daumeditor/js/trex/resizer.js"></script>
+    <script src="/daumeditor/js/trex/history.js"></script>
+    <script src="/daumeditor/js/trex/canvas.js"></script>
+    <script src="/daumeditor/js/trex/panels/panel.js"></script>
+    <script src="/daumeditor/js/trex/panels/wysiwyg/iframeloader.js"></script>
+    <script src="/daumeditor/js/trex/panels/wysiwyg/webfontloader.js"></script>
+    <script src="/daumeditor/js/trex/panels/wysiwyg/wysiwygrelative.js"></script>
+    <script src="/daumeditor/js/trex/panels/wysiwyg/eventbinder.js"></script>
+    <script src="/daumeditor/js/trex/panels/wysiwygpanel.js"></script>
+    <script src="/daumeditor/js/trex/panels/textareapanel.js"></script>
+    <script src="/daumeditor/js/trex/panels/htmlpanel.js"></script>
+    <script src="/daumeditor/js/trex/panels/textpanel.js"></script>
+    <script src="/daumeditor/js/trex/processor/marker.js"></script>
+    <script src="/daumeditor/js/trex/processor/selection.js"></script>
+    <script src="/daumeditor/js/trex/processor/bookmark.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_textarea.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_standard.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_trident.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_trident_standard.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_gecko.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_webkit.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor_presto.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_standard_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_trident_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_trident_standard_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_gecko_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_webkit_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/p/processor_presto_p.js"></script>
+    <script src="/daumeditor/js/trex/processor/processor.js"></script>
+    <script src="/daumeditor/js/trex/filters/converting.js"></script>
+    <script src="/daumeditor/js/trex/filters/redundancy.js"></script>
+    <script src="/daumeditor/js/trex/attachment.js"></script>
+    <script src="/daumeditor/js/trex/attachbox.js"></script>
+    <script src="/daumeditor/js/trex/attachbox/attachbox_ui.js"></script>
+    <script src="/daumeditor/js/trex/attachbox/filecapacity.js"></script>
+    <script src="/daumeditor/js/trex/attacher.js"></script>
+    <script src="/daumeditor/js/trex/embeder.js"></script>
+    <script src="/daumeditor/js/trex/embedentry.js"></script>
+    <script src="/daumeditor/js/trex/tool/buttonFontTool.js"></script>
+    <script src="/daumeditor/js/trex/tool/menuFontTool.js"></script>
+    <script src="/daumeditor/js/trex/tool/fontTool.js"></script>
+    <script src="/daumeditor/js/trex/tool/switcher.js"></script>
+    <script src="/daumeditor/js/trex/tool/switchertoggle.js"></script>
+    <script src="/daumeditor/js/trex/tool/fontfamily.js"></script>
+    <script src="/daumeditor/js/trex/tool/fontsize.js"></script>
+    <script src="/daumeditor/js/trex/tool/bold.js"></script>
+    <script src="/daumeditor/js/trex/tool/underline.js"></script>
+    <script src="/daumeditor/js/trex/tool/italic.js"></script>
+    <script src="/daumeditor/js/trex/tool/strike.js"></script>
+    <script src="/daumeditor/js/trex/tool/forecolor.js"></script>
+    <script src="/daumeditor/js/trex/tool/backcolor.js"></script>
+    <script src="/daumeditor/js/trex/tool/indent.js"></script>
+    <script src="/daumeditor/js/trex/tool/indentHelper.js"></script>
+    <script src="/daumeditor/js/trex/tool/outdent.js"></script>
+    <script src="/daumeditor/js/trex/mixins/alignexecution.js"></script>
+    <script src="/daumeditor/js/trex/tool/alignleft.js"></script>
+    <script src="/daumeditor/js/trex/tool/aligncenter.js"></script>
+    <script src="/daumeditor/js/trex/tool/alignright.js"></script>
+    <script src="/daumeditor/js/trex/tool/alignfull.js"></script>
+    <script src="/daumeditor/js/trex/tool/insertcells.js"></script>
+    <script src="/daumeditor/js/trex/tool/deletecells.js"></script>
+    <script src="/daumeditor/js/trex/tool/mergecells.js"></script>
+    <script src="/daumeditor/js/trex/tool/cellslineheight.js"></script>
+    <script src="/daumeditor/js/trex/tool/cellslinecolor.js"></script>
+    <script src="/daumeditor/js/trex/tool/cellslinestyle.js"></script>
+    <script src="/daumeditor/js/trex/tool/cellsoutline.js"></script>
+    <script src="/daumeditor/js/trex/tool/cellslinepreview.js"></script>
+    <script src="/daumeditor/js/trex/tool/tablebackcolor.js"></script>
+    <script src="/daumeditor/js/trex/tool/tableedittool.js"></script>
+    <script src="/daumeditor/js/trex/tool/tabletemplate.js"></script>
+    <script src="/daumeditor/js/trex/tool/lineheight.js"></script>
+    <script src="/daumeditor/js/trex/tool/styledlist.js"></script>
+    <script src="/daumeditor/js/trex/tool/insertlink.js"></script>
+    <script src="/daumeditor/js/trex/tool/richtextbox.js"></script>
+    <script src="/daumeditor/js/trex/tool/quote.js"></script>
+    <script src="/daumeditor/js/trex/tool/table.js"></script>
+    <script src="/daumeditor/js/trex/tool/emoticon.js"></script>
+    <script src="/daumeditor/js/trex/tool/redo.js"></script>
+    <script src="/daumeditor/js/trex/tool/undo.js"></script>
+    <script src="/daumeditor/js/trex/tool/removeformat.js"></script>
+    <script src="/daumeditor/js/trex/tool/horizontalrule.js"></script>
+    <script src="/daumeditor/js/trex/tool/specialchar.js"></script>
+    <script src="/daumeditor/js/trex/tool/dictionary.js"></script>
+    <script src="/daumeditor/js/trex/tool/background.js"></script>
+    <script src="/daumeditor/js/trex/tool/advanced.js"></script>
+    <script src="/daumeditor/js/trex/tool/extraButtonDropdown.js"></script>
+    <script src="/daumeditor/js/trex/tool/fullscreen.js"></script>
+    <script src="/daumeditor/js/attacher/image.js"></script>
+    <script src="/daumeditor/js/attacher/file.js"></script>
+    <script src="/daumeditor/js/embeder/media.js"></script>
+    <script src="/daumeditor/js/modules/blockingunload.js"></script>
+    <script src="/daumeditor/js/modules/alignbuttons.js"></script>
+    <script src="/daumeditor/js/modules/canvassize.js"></script>
+    <script src="/daumeditor/js/modules/blockingedit.js"></script>
+    <script src="/daumeditor/js/modules/saveimagehistory.js"></script>
+    <script src="/daumeditor/js/modules/noticepanel.js"></script>
+    <script src="/daumeditor/js/modules/table.js"></script>
+    <script src="/daumeditor/js/modules/table/selector.js"></script>
+    <script src="/daumeditor/js/modules/table/merge.js"></script>
+    <script src="/daumeditor/js/modules/table/insert.js"></script>
+    <script src="/daumeditor/js/modules/table/delete.js"></script>
+    <script src="/daumeditor/js/modules/table/border.js"></script>
+    <script src="/daumeditor/js/modules/table/template.js"></script>
+    <script src="/daumeditor/js/modules/pageupdown.js"></script>
+    <script src="/daumeditor/js/modules/tabledragger.js"></script>
+    <script src="/daumeditor/js/modules/exiteditor.js"></script>
+    
+    <script>window.EditorJSLoader.finish();</script>
+</head>
+<body>
+<div class="body">
+	<form name="tx_editor_form" id="tx_editor_form" action="http://posttestserver.com/post.php" method="post" accept-charset="utf-8">
+		<div id="tx_trex_container" class="tx-editor-container">
+            <!-- Sidebar -->
+			<div id="tx_sidebar" class="tx-sidebar">
+				<div class="tx-sidebar-boundary">
+					<ul class="tx-bar tx-bar-left tx-nav-attach">
+						<li class="tx-list"><div unselectable="on" id="tx_image" class="tx-image tx-btn-trans"><a href="javascript:;" title="사진" class="tx-text">사진</a></div></li>
+						<li class="tx-list"><div unselectable="on" id="tx_file" class="tx-file tx-btn-trans"><a href="javascript:;" title="파일" class="tx-text">파일</a></div></li>
+						<li class="tx-list"><div unselectable="on" id="tx_media" class="tx-media tx-btn-trans"><a href="javascript:;" title="외부컨텐츠" class="tx-text">외부컨텐츠</a></div></li>
+						<li class="tx-list tx-list-extra"><div unselectable="on" class="tx-btn-nlrbg tx-extra"><a href="javascript:;" class="tx-icon" title="버튼 더보기">버튼 더보기</a></div><ul class="tx-extra-menu tx-menu" style="left:-48px;" unselectable="on"></ul></li>
+					</ul>
+					<ul class="tx-bar tx-bar-right"><li class="tx-list"><div unselectable="on" class="tx-btn-lrbg tx-fullscreen" id="tx_fullscreen"><a href="javascript:;" class="tx-icon" title="넓게쓰기 (Ctrl+M)">넓게쓰기</a></div></li></ul>
+					<ul class="tx-bar tx-bar-right tx-nav-opt"><li class="tx-list"><div unselectable="on" class="tx-switchtoggle" id="tx_switchertoggle"><a href="javascript:;" title="에디터 타입">에디터</a></div></li></ul>
+				</div>
+			</div>
+
+            <!-- Toolbar -->
+			<div id="tx_toolbar_basic" class="tx-toolbar tx-toolbar-basic"><div class="tx-toolbar-boundary">
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div id="tx_fontfamily" unselectable="on" class="tx-slt-70bg tx-fontfamily"><a href="javascript:;" title="글꼴">굴림</a></div><div id="tx_fontfamily_menu" class="tx-fontfamily-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div unselectable="on" class="tx-slt-42bg tx-fontsize" id="tx_fontsize"><a href="javascript:;" title="글자크기">9pt</a></div><div id="tx_fontsize_menu" class="tx-fontsize-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-font">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-bold" id="tx_bold"><a href="javascript:;" class="tx-icon" title="굵게 (Ctrl+B)">굵게</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-underline" id="tx_underline"><a href="javascript:;" class="tx-icon" title="밑줄 (Ctrl+U)">밑줄</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-italic" id="tx_italic"><a href="javascript:;" class="tx-icon" title="기울임 (Ctrl+I)">기울임</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-strike" id="tx_strike"><a href="javascript:;" class="tx-icon" title="취소선 (Ctrl+D)">취소선</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-slt-tbg tx-forecolor" id="tx_forecolor"><a href="javascript:;" class="tx-icon" title="글자색">글자색</a><a href="javascript:;" class="tx-arrow" title="글자색 선택">글자색 선택</a></div><div id="tx_forecolor_menu" class="tx-menu tx-forecolor-menu tx-colorpallete" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-slt-brbg tx-backcolor" id="tx_backcolor"><a href="javascript:;" class="tx-icon" title="글자 배경색">글자 배경색</a><a href="javascript:;" class="tx-arrow" title="글자 배경색 선택">글자 배경색 선택</a></div><div id="tx_backcolor_menu" class="tx-menu tx-backcolor-menu tx-colorpallete" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-align">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-alignleft" id="tx_alignleft"><a href="javascript:;" class="tx-icon" title="왼쪽정렬 (Ctrl+,)">왼쪽정렬</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-aligncenter" id="tx_aligncenter"><a href="javascript:;" class="tx-icon" title="가운데정렬 (Ctrl+.)">가운데정렬</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-alignright" id="tx_alignright"><a href="javascript:;" class="tx-icon" title="오른쪽정렬 (Ctrl+/)">오른쪽정렬</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-alignfull" id="tx_alignfull"><a href="javascript:;" class="tx-icon" title="양쪽정렬">양쪽정렬</a></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-tab">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-indent" id="tx_indent"><a href="javascript:;" title="들여쓰기 (Tab)" class="tx-icon">들여쓰기</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-outdent" id="tx_outdent"><a href="javascript:;" title="내어쓰기 (Shift+Tab)" class="tx-icon">내어쓰기</a></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-list">
+					<li class="tx-list"><div unselectable="on" class="tx-slt-31lbg tx-lineheight" id="tx_lineheight"><a href="javascript:;" class="tx-icon" title="줄간격">줄간격</a><a href="javascript:;" class="tx-arrow" title="줄간격">줄간격 선택</a></div><div id="tx_lineheight_menu" class="tx-lineheight-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-slt-31rbg tx-styledlist" id="tx_styledlist"><a href="javascript:;" class="tx-icon" title="리스트">리스트</a><a href="javascript:;" class="tx-arrow" title="리스트">리스트 선택</a></div><div id="tx_styledlist_menu" class="tx-styledlist-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-etc">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-emoticon" id="tx_emoticon"><a href="javascript:;" class="tx-icon" title="이모티콘">이모티콘</a></div><div id="tx_emoticon_menu" class="tx-emoticon-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-link" id="tx_link"><a href="javascript:;" class="tx-icon" title="링크 (Ctrl+K)">링크</a></div><div id="tx_link_menu" class="tx-link-menu tx-menu"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-specialchar" id="tx_specialchar"><a href="javascript:;" class="tx-icon" title="특수문자">특수문자</a></div><div id="tx_specialchar_menu" class="tx-specialchar-menu tx-menu"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-table" id="tx_table"><a href="javascript:;" class="tx-icon" title="표만들기">표만들기</a></div><div id="tx_table_menu" class="tx-table-menu tx-menu" unselectable="on"><div class="tx-menu-inner"><div class="tx-menu-preview"></div><div class="tx-menu-rowcol"></div><div class="tx-menu-deco"></div><div class="tx-menu-enter"></div></div></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-horizontalrule" id="tx_horizontalrule"><a href="javascript:;" class="tx-icon" title="구분선">구분선</a></div><div id="tx_horizontalrule_menu" class="tx-horizontalrule-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-richtextbox" id="tx_richtextbox"><a href="javascript:;" class="tx-icon" title="글상자">글상자</a></div><div id="tx_richtextbox_menu" class="tx-richtextbox-menu tx-menu"><div class="tx-menu-header"><div class="tx-menu-preview-area"><div class="tx-menu-preview"></div></div><div class="tx-menu-switch"><div class="tx-menu-simple tx-selected"><a><span>간단 선택</span></a></div><div class="tx-menu-advanced"><a><span>직접 선택</span></a></div></div></div><div class="tx-menu-inner"></div><div class="tx-menu-footer"><img class="tx-menu-confirm" src="/daumeditor/images/icon/editor/btn_confirm.gif?rv=1.0.1" alt=""/><img class="tx-menu-cancel" hspace="3" src="/daumeditor/images/icon/editor/btn_cancel.gif?rv=1.0.1" alt=""/></div></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-quote" id="tx_quote"><a href="javascript:;" class="tx-icon" title="인용구 (Ctrl+Q)">인용구</a></div><div id="tx_quote_menu" class="tx-quote-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-background" id="tx_background"><a href="javascript:;" class="tx-icon" title="배경색">배경색</a></div><div id="tx_background_menu" class="tx-menu tx-background-menu tx-colorpallete" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-dictionary" id="tx_dictionary"><a href="javascript:;" class="tx-icon" title="사전">사전</a></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-undo">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-undo" id="tx_undo"><a href="javascript:;" class="tx-icon" title="실행취소 (Ctrl+Z)">실행취소</a></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-redo" id="tx_redo"><a href="javascript:;" class="tx-icon" title="다시실행 (Ctrl+Y)">다시실행</a></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-right"><li class="tx-list"><div unselectable="on" class="tx-btn-nlrbg tx-advanced" id="tx_advanced"><a href="javascript:;" class="tx-icon" title="툴바 더보기">툴바 더보기</a></div></li></ul>
+			</div></div>
+
+			<div id="tx_canvas" class="tx-canvas">
+				<div id="tx_loading" class="tx-loading"><div><img src="/daumeditor/images/icon/editor/loading2.png" width="113" height="21" align="absmiddle"/></div></div>
+				<div id="tx_canvas_wysiwyg_holder" class="tx-holder" style="display:block;">
+					<iframe id="tx_canvas_wysiwyg" name="tx_canvas_wysiwyg" allowtransparency="true" frameborder="0"></iframe>
+				</div>
+				<div class="tx-source-deco">
+					<div id="tx_canvas_source_holder" class="tx-holder"><textarea id="tx_canvas_source" rows="30" cols="30"></textarea></div>
+				</div>
+				<div id="tx_canvas_text_holder" class="tx-holder"><textarea id="tx_canvas_text" rows="30" cols="30"></textarea></div>
+			</div>
+			
+			<div id="tx_resizer" class="tx-resize-bar">
+				<div class="tx-resize-bar-bg"></div>
+				<img id="tx_resize_holder" src="/daumeditor/images/icon/editor/skin/01/btn_drag01.gif" width="58" height="12" unselectable="on" alt="" />
+			</div>
+			<div class="tx-side-bi" id="tx_side_bi"><div style="text-align: right;"><img hspace="4" height="14" width="78" align="absmiddle" src="/daumeditor/images/icon/editor/editor_bi.png" /></div></div>
+
+			<div id="tx_attach_div" class="tx-attach-div">
+				<div id="tx_attach_txt" class="tx-attach-txt">파일 첨부</div>
+				<div id="tx_attach_box" class="tx-attach-box">
+					<div class="tx-attach-box-inner">
+						<div id="tx_attach_preview" class="tx-attach-preview"><p></p><img src="/daumeditor/images/icon/editor/pn_preview.gif" width="147" height="108" unselectable="on"/></div>
+						<div class="tx-attach-main">
+							<div id="tx_upload_progress" class="tx-upload-progress"><div>0%</div><p>파일을 업로드하는 중입니다.</p></div>
+							<ul class="tx-attach-top">
+								<li id="tx_attach_delete" class="tx-attach-delete"><a>전체삭제</a></li>
+								<li id="tx_attach_size" class="tx-attach-size">파일: <span id="tx_attach_up_size" class="tx-attach-size-up"></span>/<span id="tx_attach_max_size"></span></li>
+								<li id="tx_attach_tools" class="tx-attach-tools"></li>
+							</ul>
+							<ul id="tx_attach_list" class="tx-attach-list"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div style="margin-top: 20px;"><button id="save_button">SAMPLE - submit contents</button></div>
+<div id="app"></div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

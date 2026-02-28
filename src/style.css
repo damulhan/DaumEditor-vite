@@ -1,0 +1,6 @@
+/* src/style.css */
+/* Removed modernization styles to preserve original DaumEditor UI as requested. */
+body {
+    background-color: #fff;
+    font-family: '굴림', Gulim, sans-serif;
+}
