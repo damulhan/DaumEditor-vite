@@ -164,7 +164,7 @@ const coreFiles = [
     "trex/modules/exiteditor.js"
 ];
 
-console.log('📦 번들링 시작...');
+console.log('번들링 시작...');
 
 let combinedContent = '';
 coreFiles.forEach(file => {
@@ -197,17 +197,17 @@ if (typeof window !== 'undefined') {
 combinedContent += runtimeSync;
 
 fs.writeFileSync(outputFile, combinedContent);
-console.log(`✅ 번들 생성 완료: ${outputFile}`);
+console.log(`번들 생성 완료: ${outputFile}`);
 
 // js/editor.js 에도 복사하여 Loader가 올바른 파일을 읽게 함
 const entryPoint = path.join(baseDir, 'editor.js');
 fs.writeFileSync(entryPoint, combinedContent);
-console.log(`✅ 엔트리 포인트 업데이트 완료: ${entryPoint}`);
+console.log(`엔트리 포인트 업데이트 완료: ${entryPoint}`);
 
-console.log('⚡ 압축(Minify) 시작...');
+console.log('압축(Minify) 시작...');
 try {
     execSync(`npx terser ${outputFile} -o ${minifiedFile} --compress --mangle`);
-    console.log(`✨ 압축 완료: ${minifiedFile}`);
+    console.log(`압축 완료: ${minifiedFile}`);
 } catch (error) {
-    console.error('❌ 압축 도중 에러 발생:', error.message);
+    console.error('압축 도중 에러 발생:', error.message);
 }
