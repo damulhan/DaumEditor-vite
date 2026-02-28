@@ -180,6 +180,24 @@ coreFiles.forEach(file => {
 const runtimeSync = `
 if (typeof EditorJSLoader !== 'undefined') {
     EditorJSLoader.readyState = 'complete';
+    if (!EditorJSLoader.getOption) {
+        EditorJSLoader.getOption = function(key) {
+            if (key === 'environment') return 'development';
+            return '';
+        };
+    }
+    if (!EditorJSLoader.asyncLoadModule) {
+        EditorJSLoader.asyncLoadModule = function(config) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = config.url;
+            script.onload = function() {
+                if (config.callback) config.callback();
+            };
+            document.getElementsByTagName('head')[0].appendChild(script);
+            return { readyState: 'loading' };
+        };
+    }
     if (EditorJSLoader.finish) {
         EditorJSLoader.finish();
     }
