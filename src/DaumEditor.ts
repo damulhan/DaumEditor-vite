@@ -4,7 +4,7 @@ export interface EditorConfig {
   initialContent?: string;
 }
 
-export class DaumEditor2 {
+export class DaumEditor {
   container: HTMLElement;
   toolbar: HTMLElement;
   canvas: HTMLElement;
