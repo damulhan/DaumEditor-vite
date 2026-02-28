@@ -176,9 +176,33 @@ coreFiles.forEach(file => {
         console.warn(`! ${file} 파일을 찾을 수 없습니다.`);
     }
 });
+// 런타임 호환성을 위한 코드 추가 (Legacy Loader 연동 및 글로벌 노출)
+const runtimeSync = `
+if (typeof EditorJSLoader !== 'undefined') {
+    EditorJSLoader.readyState = 'complete';
+    if (EditorJSLoader.finish) {
+        EditorJSLoader.finish();
+    }
+}
+// 전역 변수 명시적 노출 (Vite 환경 및 일반 스크립트 로드 호환)
+if (typeof window !== 'undefined') {
+    if (typeof Editor !== 'undefined') window.Editor = Editor;
+    if (typeof Trex !== 'undefined') window.Trex = Trex;
+    if (typeof $tx !== 'undefined') window.$tx = $tx;
+    // 필수 전역 상수/변수 노출 (에러 방지)
+    window._TRUE = true; window._FALSE = false; window._NULL = null; window._UNDEFINED = undefined;
+    window._WIN = window; window._DOC = document; window._DOC_EL = document.documentElement;
+}
+`;
+combinedContent += runtimeSync;
 
 fs.writeFileSync(outputFile, combinedContent);
 console.log(`✅ 번들 생성 완료: ${outputFile}`);
+
+// js/editor.js 에도 복사하여 Loader가 올바른 파일을 읽게 함
+const entryPoint = path.join(baseDir, 'editor.js');
+fs.writeFileSync(entryPoint, combinedContent);
+console.log(`✅ 엔트리 포인트 업데이트 완료: ${entryPoint}`);
 
 console.log('⚡ 압축(Minify) 시작...');
 try {

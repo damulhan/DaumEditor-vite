@@ -40313,3 +40313,19 @@ Trex.module("exit Editor", function(editor, toolbar, sidebar, canvas, config) {
         execHandler(ev);
     });
 });
+
+if (typeof EditorJSLoader !== 'undefined') {
+    EditorJSLoader.readyState = 'complete';
+    if (EditorJSLoader.finish) {
+        EditorJSLoader.finish();
+    }
+}
+// 전역 변수 명시적 노출 (Vite 환경 및 일반 스크립트 로드 호환)
+if (typeof window !== 'undefined') {
+    if (typeof Editor !== 'undefined') window.Editor = Editor;
+    if (typeof Trex !== 'undefined') window.Trex = Trex;
+    if (typeof $tx !== 'undefined') window.$tx = $tx;
+    // 필수 전역 상수/변수 노출 (에러 방지)
+    window._TRUE = true; window._FALSE = false; window._NULL = null; window._UNDEFINED = undefined;
+    window._WIN = window; window._DOC = document; window._DOC_EL = document.documentElement;
+}
