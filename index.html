@@ -31,163 +31,15 @@
                 this._readyCallbacks.forEach(fn => fn(window.Editor));
                 this._readyCallbacks = [];
             },
-            getBasePath: function() {
-                return "/daumeditor/";
-            },
-            getJSBasePath: function() {
-                return "/daumeditor/js/";
-            },
-            getCSSBasePath: function() {
-                return "/daumeditor/css/";
-            },
-            getPageBasePath: function() {
-                return "/daumeditor/pages/";
-            }
+            getBasePath: function() { return "/daumeditor/"; },
+            getJSBasePath: function() { return "/daumeditor/js/"; },
+            getCSSBasePath: function() { return "/daumeditor/css/"; },
+            getPageBasePath: function() { return "/daumeditor/pages/"; }
         };
     </script>
     
-    <!-- Legacy Scripts from PUBLIC -->
-    <script src="/daumeditor/js/scopeVariable.js"></script>
-    <script src="/daumeditor/js/lib/json2.js"></script>
-    <script src="/daumeditor/js/lib/txlib.js"></script>
-    <script src="/daumeditor/js/lib/closure-range.js"></script>
-    <script src="/daumeditor/js/lib/hyperscript.js"></script>
-    <script src="/daumeditor/js/lib/template.js"></script>
-    <script src="/daumeditor/js/lib/dgetty.js"></script>
-    <script src="/daumeditor/js/lib/dfindy.js"></script>
-    <script src="/daumeditor/js/lib/xgetty.js"></script>
-    <script src="/daumeditor/js/lib/font_css_property.js"></script>
-    <script src="/daumeditor/js/trex/eval.js"></script>
-    <script src="/daumeditor/js/trex/trex.js"></script>
-    <script src="/daumeditor/js/trex/event.js"></script>
-    <script src="/daumeditor/js/trex/config.js"></script>
-    <script src="/daumeditor/js/trex/message.js"></script>
-    <script src="/daumeditor/js/trex/configbuilder.js"></script>
-    <script src="/daumeditor/js/trex/lib/markup.js"></script>
-    <script src="/daumeditor/js/trex/lib/domutil.js"></script>
-    <script src="/daumeditor/js/trex/lib/utils.js"></script>
-    <script src="/daumeditor/js/trex/lib/imageresizer.js"></script>
-    <script src="/daumeditor/js/trex/lib/tableutil.js"></script>
-    <script src="/daumeditor/js/trex/mixins/ajax.js"></script>
-    <script src="/daumeditor/js/trex/mixins/observable.js"></script>
-    <script src="/daumeditor/js/trex/mixins/colorpallete.js"></script>
-    <script src="/daumeditor/js/trex/mixins/cookiebaker.js"></script>
-    <script src="/daumeditor/js/trex/common/button.js"></script>
-    <script src="/daumeditor/js/trex/common/menu.js"></script>
-    <script src="/daumeditor/js/trex/common/menuback.js"></script>
-    <script src="/daumeditor/js/trex/editor.js"></script>
-    <script src="/daumeditor/js/trex/toolbar.js"></script>
-    <script src="/daumeditor/js/trex/sidebar.js"></script>
-    <script src="/daumeditor/js/trex/docparser.js"></script>
-    <script src="/daumeditor/js/trex/entryproxy.js"></script>
-    <script src="/daumeditor/js/trex/formproxy.js"></script>
-    <script src="/daumeditor/js/trex/saver.js"></script>
-    <script src="/daumeditor/js/trex/resizer.js"></script>
-    <script src="/daumeditor/js/trex/history.js"></script>
-    <script src="/daumeditor/js/trex/canvas.js"></script>
-    <script src="/daumeditor/js/trex/panels/panel.js"></script>
-    <script src="/daumeditor/js/trex/panels/wysiwyg/iframeloader.js"></script>
-    <script src="/daumeditor/js/trex/panels/wysiwyg/webfontloader.js"></script>
-    <script src="/daumeditor/js/trex/panels/wysiwyg/wysiwygrelative.js"></script>
-    <script src="/daumeditor/js/trex/panels/wysiwyg/eventbinder.js"></script>
-    <script src="/daumeditor/js/trex/panels/wysiwygpanel.js"></script>
-    <script src="/daumeditor/js/trex/panels/textareapanel.js"></script>
-    <script src="/daumeditor/js/trex/panels/htmlpanel.js"></script>
-    <script src="/daumeditor/js/trex/panels/textpanel.js"></script>
-    <script src="/daumeditor/js/trex/processor/marker.js"></script>
-    <script src="/daumeditor/js/trex/processor/selection.js"></script>
-    <script src="/daumeditor/js/trex/processor/bookmark.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_textarea.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_standard.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_trident.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_trident_standard.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_gecko.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_webkit.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor_presto.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_standard_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_trident_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_trident_standard_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_gecko_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_webkit_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/p/processor_presto_p.js"></script>
-    <script src="/daumeditor/js/trex/processor/processor.js"></script>
-    <script src="/daumeditor/js/trex/filters/converting.js"></script>
-    <script src="/daumeditor/js/trex/filters/redundancy.js"></script>
-    <script src="/daumeditor/js/trex/attachment.js"></script>
-    <script src="/daumeditor/js/trex/attachbox.js"></script>
-    <script src="/daumeditor/js/trex/attachbox/attachbox_ui.js"></script>
-    <script src="/daumeditor/js/trex/attachbox/filecapacity.js"></script>
-    <script src="/daumeditor/js/trex/attacher.js"></script>
-    <script src="/daumeditor/js/trex/embeder.js"></script>
-    <script src="/daumeditor/js/trex/embedentry.js"></script>
-    <script src="/daumeditor/js/trex/tool/buttonFontTool.js"></script>
-    <script src="/daumeditor/js/trex/tool/menuFontTool.js"></script>
-    <script src="/daumeditor/js/trex/tool/fontTool.js"></script>
-    <script src="/daumeditor/js/trex/tool/switcher.js"></script>
-    <script src="/daumeditor/js/trex/tool/switchertoggle.js"></script>
-    <script src="/daumeditor/js/trex/tool/fontfamily.js"></script>
-    <script src="/daumeditor/js/trex/tool/fontsize.js"></script>
-    <script src="/daumeditor/js/trex/tool/bold.js"></script>
-    <script src="/daumeditor/js/trex/tool/underline.js"></script>
-    <script src="/daumeditor/js/trex/tool/italic.js"></script>
-    <script src="/daumeditor/js/trex/tool/strike.js"></script>
-    <script src="/daumeditor/js/trex/tool/forecolor.js"></script>
-    <script src="/daumeditor/js/trex/tool/backcolor.js"></script>
-    <script src="/daumeditor/js/trex/tool/indent.js"></script>
-    <script src="/daumeditor/js/trex/tool/indentHelper.js"></script>
-    <script src="/daumeditor/js/trex/tool/outdent.js"></script>
-    <script src="/daumeditor/js/trex/mixins/alignexecution.js"></script>
-    <script src="/daumeditor/js/trex/tool/alignleft.js"></script>
-    <script src="/daumeditor/js/trex/tool/aligncenter.js"></script>
-    <script src="/daumeditor/js/trex/tool/alignright.js"></script>
-    <script src="/daumeditor/js/trex/tool/alignfull.js"></script>
-    <script src="/daumeditor/js/trex/tool/insertcells.js"></script>
-    <script src="/daumeditor/js/trex/tool/deletecells.js"></script>
-    <script src="/daumeditor/js/trex/tool/mergecells.js"></script>
-    <script src="/daumeditor/js/trex/tool/cellslineheight.js"></script>
-    <script src="/daumeditor/js/trex/tool/cellslinecolor.js"></script>
-    <script src="/daumeditor/js/trex/tool/cellslinestyle.js"></script>
-    <script src="/daumeditor/js/trex/tool/cellsoutline.js"></script>
-    <script src="/daumeditor/js/trex/tool/cellslinepreview.js"></script>
-    <script src="/daumeditor/js/trex/tool/tablebackcolor.js"></script>
-    <script src="/daumeditor/js/trex/tool/tableedittool.js"></script>
-    <script src="/daumeditor/js/trex/tool/tabletemplate.js"></script>
-    <script src="/daumeditor/js/trex/tool/lineheight.js"></script>
-    <script src="/daumeditor/js/trex/tool/styledlist.js"></script>
-    <script src="/daumeditor/js/trex/tool/insertlink.js"></script>
-    <script src="/daumeditor/js/trex/tool/richtextbox.js"></script>
-    <script src="/daumeditor/js/trex/tool/quote.js"></script>
-    <script src="/daumeditor/js/trex/tool/table.js"></script>
-    <script src="/daumeditor/js/trex/tool/emoticon.js"></script>
-    <script src="/daumeditor/js/trex/tool/redo.js"></script>
-    <script src="/daumeditor/js/trex/tool/undo.js"></script>
-    <script src="/daumeditor/js/trex/tool/removeformat.js"></script>
-    <script src="/daumeditor/js/trex/tool/horizontalrule.js"></script>
-    <script src="/daumeditor/js/trex/tool/specialchar.js"></script>
-    <script src="/daumeditor/js/trex/tool/dictionary.js"></script>
-    <script src="/daumeditor/js/trex/tool/background.js"></script>
-    <script src="/daumeditor/js/trex/tool/advanced.js"></script>
-    <script src="/daumeditor/js/trex/tool/extraButtonDropdown.js"></script>
-    <script src="/daumeditor/js/trex/tool/fullscreen.js"></script>
-    <script src="/daumeditor/js/attacher/image.js"></script>
-    <script src="/daumeditor/js/attacher/file.js"></script>
-    <script src="/daumeditor/js/embeder/media.js"></script>
-    <script src="/daumeditor/js/modules/blockingunload.js"></script>
-    <script src="/daumeditor/js/modules/alignbuttons.js"></script>
-    <script src="/daumeditor/js/modules/canvassize.js"></script>
-    <script src="/daumeditor/js/modules/blockingedit.js"></script>
-    <script src="/daumeditor/js/modules/saveimagehistory.js"></script>
-    <script src="/daumeditor/js/modules/noticepanel.js"></script>
-    <script src="/daumeditor/js/modules/table.js"></script>
-    <script src="/daumeditor/js/modules/table/selector.js"></script>
-    <script src="/daumeditor/js/modules/table/merge.js"></script>
-    <script src="/daumeditor/js/modules/table/insert.js"></script>
-    <script src="/daumeditor/js/modules/table/delete.js"></script>
-    <script src="/daumeditor/js/modules/table/border.js"></script>
-    <script src="/daumeditor/js/modules/table/template.js"></script>
-    <script src="/daumeditor/js/modules/pageupdown.js"></script>
-    <script src="/daumeditor/js/modules/tabledragger.js"></script>
-    <script src="/daumeditor/js/modules/exiteditor.js"></script>
+    <!-- Single Bundled Legacy Script -->
+    <script src="/daumeditor/daumeditor.all.js"></script>
     
     <script>window.EditorJSLoader.finish();</script>
 </head>
@@ -257,6 +109,31 @@
 					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-redo" id="tx_redo"><a href="javascript:;" class="tx-icon" title="다시실행 (Ctrl+Y)">다시실행</a></div></li>
 				</ul>
 				<ul class="tx-bar tx-bar-right"><li class="tx-list"><div unselectable="on" class="tx-btn-nlrbg tx-advanced" id="tx_advanced"><a href="javascript:;" class="tx-icon" title="툴바 더보기">툴바 더보기</a></div></li></ul>
+			</div></div>
+
+			<!-- Toolbar Advanced -->
+			<div id="tx_toolbar_advanced" class="tx-toolbar tx-toolbar-advanced"><div class="tx-toolbar-boundary">
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div class="tx-tableedit-title"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-align">
+					<li class="tx-list"><div unselectable="on" class="tx-btn-lbg tx-mergecells" id="tx_mergecells"><a href="javascript:;" class="tx-icon2" title="병합">병합</a></div><div id="tx_mergecells_menu" class="tx-mergecells-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-bg tx-insertcells" id="tx_insertcells"><a href="javascript:;" class="tx-icon2" title="삽입">삽입</a></div><div id="tx_insertcells_menu" class="tx-insertcells-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div unselectable="on" class="tx-btn-rbg tx-deletecells" id="tx_deletecells"><a href="javascript:;" class="tx-icon2" title="삭제">삭제</a></div><div id="tx_deletecells_menu" class="tx-deletecells-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left tx-group-align">
+					<li class="tx-list"><div id="tx_cellslinepreview" unselectable="on" class="tx-slt-70lbg tx-cellslinepreview"><a href="javascript:;" title="선 미리보기"></a></div><div id="tx_cellslinepreview_menu" class="tx-cellslinepreview-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div id="tx_cellslinecolor" unselectable="on" class="tx-slt-tbg tx-cellslinecolor"><a href="javascript:;" class="tx-icon2" title="선색">선색</a><div class="tx-colorpallete" unselectable="on"></div></div><div id="tx_cellslinecolor_menu" class="tx-cellslinecolor-menu tx-menu tx-colorpallete" unselectable="on"></div></li>
+					<li class="tx-list"><div id="tx_cellslineheight" unselectable="on" class="tx-btn-bg tx-cellslineheight"><a href="javascript:;" class="tx-icon2" title="두께">두께</a></div><div id="tx_cellslineheight_menu" class="tx-cellslineheight-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div id="tx_cellslinestyle" unselectable="on" class="tx-btn-bg tx-cellslinestyle"><a href="javascript:;" class="tx-icon2" title="스타일">스타일</a></div><div id="tx_cellslinestyle_menu" class="tx-cellslinestyle-menu tx-menu" unselectable="on"></div></li>
+					<li class="tx-list"><div id="tx_cellsoutline" unselectable="on" class="tx-btn-rbg tx-cellsoutline"><a href="javascript:;" class="tx-icon2" title="테두리">테두리</a></div><div id="tx_cellsoutline_menu" class="tx-cellsoutline-menu tx-menu" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div id="tx_tablebackcolor" unselectable="on" class="tx-btn-lrbg tx-tablebackcolor" style="background-color:#9aa5ea;"><a href="javascript:;" class="tx-icon2" title="테이블 배경색">테이블 배경색</a></div><div id="tx_tablebackcolor_menu" class="tx-tablebackcolor-menu tx-menu tx-colorpallete" unselectable="on"></div></li>
+				</ul>
+				<ul class="tx-bar tx-bar-left">
+					<li class="tx-list"><div id="tx_tabletemplate" unselectable="on" class="tx-btn-lrbg tx-tabletemplate"><a href="javascript:;" class="tx-icon2" title="테이블 서식">테이블 서식</a></div><div id="tx_tabletemplate_menu" class="tx-tabletemplate-menu tx-menu tx-colorpallete" unselectable="on"></div></li>
+				</ul>
 			</div></div>
 
 			<div id="tx_canvas" class="tx-canvas">
