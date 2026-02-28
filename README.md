@@ -2,6 +2,8 @@
 
 이 프로젝트는 오픈소스 **Daum Editor**를 현대적인 웹 개발 환경인 **Vite**와 **TypeScript** 기반으로 마이그레이션하고 최적화한 프로젝트다. 단순히 실행만 가능하게 한 것이 아니라, 실제 서비스 개발 및 유지보수가 용이하도록 밑바닥 구조를 완전히 재설계했다.
 
+*   **원본 소스 위치**: [https://github.com/kakao/DaumEditor](https://github.com/kakao/DaumEditor)
+
 ## 주요 변경 사항
 
 ### 1. 통합 번들링
