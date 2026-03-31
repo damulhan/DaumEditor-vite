@@ -38,6 +38,7 @@ Trex.Toolbar = Trex.Class.create(/** @lends Trex.Toolbar.prototype */{
 		var _tools = this.tools;
 		for (var _name in _tools) {
 			if (_tools[_name].button) {
+				if (!_tools[_name].button.el) continue;
 				_tools[_name].button.disable();
 			}
 		}
@@ -147,6 +148,7 @@ Trex.module("bind events with tools",
 			for (var _name in _tools) {
 				var _tool = _tools[_name];
 				var _btn = _tool.button;
+				if (!_btn || !_btn.el) continue;
 				if (Trex.Canvas.__WYSIWYG_MODE == to) {
 					_btn.enable();
 				} else if (Trex.Canvas.__WYSIWYG_MODE == from) {

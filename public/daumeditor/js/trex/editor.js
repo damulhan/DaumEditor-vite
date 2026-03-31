@@ -176,14 +176,18 @@ Trex.Editor = Trex.Class.create( /** @lends Trex.Editor.prototype */{
 			__SELECTED_INDEX: 0
 		},
         _initEditor: function (_editor, config) {
+            var _initializedId = config.initializedId || "";
+            var _idx = (_initializedId == "" ? 0 : _initializedId);
+            if (Editor.__MULTI_LIST[_idx]) {
+                console.warn("DaumEditor is already initialized for ID: " + _initializedId);
+                return;
+            }
             Editor.__EDITOR_LOADED = _FALSE;
             Editor.__PANEL_LOADED = _FALSE;
             _editor = new Trex.Editor(config);
-            var _initializedId = _editor.getInitializedId();
             if (_initializedId != _NULL) {
-                var idx = _initializedId == "" ? 0 : _initializedId;
-                Editor.__MULTI_LIST[idx] = _editor;
-                Editor.__SELECTED_INDEX = idx;
+                Editor.__MULTI_LIST[_idx] = _editor;
+                Editor.__SELECTED_INDEX = _idx;
             }
             Object.extend(Editor, _editor);
             Editor.__EDITOR_LOADED = _TRUE;
